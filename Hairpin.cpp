@@ -319,6 +319,7 @@ std::ostream &operator<<(std::ostream &os, const HairpinResult hr)
 		os << "||  " << hr.sequence1.substr(counter,60) << "\n";
 		os << "||  " << hr.sequence2.substr(counter) << "\n";
 		os << "||  " << hr.sequence3.substr(counter) << "\n||\n";
+		counter += 60;
 		while (counter + 60 < max1)
 		{
 			os << "||  " << hr.sequence1.substr(counter,60) << "\n||\n||\n";
