@@ -19,7 +19,7 @@ class DNAArg
 	std::string fileName;
 	int minimumLength;
 	int loopLength;
-	int missmatchNumber;
+	int mismatchNumber;
 
 	bool valid;
 

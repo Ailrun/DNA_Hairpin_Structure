@@ -32,6 +32,11 @@ FASTA::FASTA(std::string fileName)
 		else if (!description.empty())
 		{
 			if (line.find(' ') != string::npos)
+			{
+				cerr << "This file is not a FASTA format!\n"
+					 << "There is ' ' in the file\n";
+				exit(1);
+			}
 			content += line;
 		}
 	}

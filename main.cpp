@@ -22,11 +22,11 @@ int main(int argc, char **argv)
 					   args.getLoopLength(),
 					   args.getMissmatchNumber());
 
-	HairpinResult result;
+	HairpinResult result(false);
 
 	cout << "-----------------OUTPUT-----------------" << endl;
 
-	while ((result = table.printResult(args.getMinimumLength())).isValid())
+	while ((result = table.printResult(args.getMinimumLength(), false)).isValid())
 	{
 		 cout << result;
 	}

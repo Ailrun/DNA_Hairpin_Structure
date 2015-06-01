@@ -11,7 +11,7 @@ void DNAArg::invalidSetting(void)
 	fileName = "";
 	minimumLength = -1;
 	loopLength = -1;
-	missmatchNumber = -1;
+	mismatchNumber = -1;
 }
 
 int DNAArg::validSetting(char *optionk, char *optionv)
@@ -29,7 +29,7 @@ int DNAArg::validSetting(char *optionk, char *optionv)
 	if (strlen(optionk) == 6)
 	{
 		fileName = optionv;
-		return (strncmp((optionv+1), "input", 5)==0?0:-1);
+		return (strncmp((optionk+1), "input", 5)==0?0:-1);
 	}
 
 	try
@@ -40,7 +40,7 @@ int DNAArg::validSetting(char *optionk, char *optionv)
 					 minimumLength = stoi(optionv);
 					 return 1;
 			case 'm' :
-					 missmatchNumber = stoi(optionv);
+					 mismatchNumber = stoi(optionv);
 					 return 2;
 			case 'h' :
 					 loopLength = stoi(optionv);
@@ -57,7 +57,7 @@ int DNAArg::validSetting(char *optionk, char *optionv)
 
 DNAArg::DNAArg(int argc, char **argv)
 {
-	if (argc != 8)
+	if (argc != 9)
 	{
 		invalidSetting();
 	}
@@ -73,7 +73,7 @@ DNAArg::DNAArg(int argc, char **argv)
 		 */
 		for (int ind = 0; ind < 4; ind++)
 		{
-			optind = validSetting(argv[2*ind],argv[2*ind+1]);
+			optind = validSetting(argv[2*ind+1],argv[2*ind+2]);
 			if (optind > -1 && optind < 5)
 				optionsExist[optind] = true;
 		}
@@ -93,7 +93,7 @@ int DNAArg::getMinimumLength(void)
 
 int DNAArg::getMissmatchNumber(void)
 {
-	return missmatchNumber;
+	return mismatchNumber;
 }
 
 int DNAArg::getLoopLength(void)
