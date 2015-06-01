@@ -301,7 +301,7 @@ std::ostream &operator<<(std::ostream &os, const HairpinResult hr)
 
 	os << "||  ============================================================\n||\n";
 
-	os << "\n||  i = " << hr.i << ", j = " << hr.j
+	os << "||  i = " << hr.i << ", j = " << hr.j
 	   << ", length = " << hr.j-hr.i+1
 	   << ", loop_length = " << hr.realLoopLength
 	   << ", miss = " << hr.mismatchNumber << "\n||\n";
